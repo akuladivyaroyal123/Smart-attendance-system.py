@@ -1,0 +1,41 @@
+# Smart Attendance System in Python
+
+attendance = {}
+
+print("===== SMART ATTENDANCE SYSTEM =====")
+
+# Number of students
+n = int(input("Enter number of students: "))
+
+# Enter student names
+for i in range(n):
+    name = input(f"Enter student {i + 1} name: ")
+    attendance[name] = "Absent"
+
+# Mark attendance
+print("\n--- MARK ATTENDANCE ---")
+
+for name in attendance:
+    status = input(f"Is {name} present? (yes/no): ")
+
+    if status.lower() == "yes":
+        attendance[name] = "Present"
+
+# Display attendance
+print("\n===== ATTENDANCE REPORT =====")
+
+present = 0
+absent = 0
+
+for name, status in attendance.items():
+    print(name, ":", status)
+
+    if status == "Present":
+        present += 1
+    else:
+        absent += 1
+
+print("\nTotal Students:", n)
+print("Present:", present)
+print("Absent:", absent)
+print("Attendance Percentage:", (present / n) * 100, "%")
